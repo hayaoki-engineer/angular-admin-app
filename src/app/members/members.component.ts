@@ -32,7 +32,8 @@ export class MembersComponent {
   }
 
   getMembers(): void {
-    this.members = this.memberService.getMembers();
+    this.memberService.getMembers()
+      .subscribe(members => this.members = members)
   }
 
 }
