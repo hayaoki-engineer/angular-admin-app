@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Member } from '../member';
 import { MEMBERS } from '../mock-members';
+import { MemberDetailComponent } from '../member-detail/member-detail.component';
 
 @Component({
   selector: 'app-members',
@@ -10,6 +11,7 @@ import { MEMBERS } from '../mock-members';
   imports: [
     CommonModule,
     FormsModule,
+    MemberDetailComponent
   ],
   templateUrl: './members.component.html',
   styleUrl: './members.component.css'
