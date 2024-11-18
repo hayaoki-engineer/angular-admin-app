@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Member } from '../member';
-import { MEMBERS } from '../mock-members';
 import { MemberDetailComponent } from '../member-detail/member-detail.component';
+import { MemberService } from '../member.service';
 
 @Component({
   selector: 'app-members',
@@ -18,15 +18,21 @@ import { MemberDetailComponent } from '../member-detail/member-detail.component'
 })
 export class MembersComponent {
   
-  members = MEMBERS;
-  member: Member = {
-    id: 1,
-    name: '田中太郎'
-  }
+  members: Member[] = [];
   selectedMember?: Member;
+
+  constructor(private memberService: MemberService) { }
+
+  ngOnInit(): void {
+    this.getMembers();
+  }
 
   onSelect(member: Member): void {
     this.selectedMember = member;
+  }
+
+  getMembers(): void {
+    this.members = this.memberService.getMembers();
   }
 
 }
