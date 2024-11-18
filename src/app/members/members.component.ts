@@ -15,10 +15,16 @@ import { MEMBERS } from '../mock-members';
   styleUrl: './members.component.css'
 })
 export class MembersComponent {
+  
   members = MEMBERS;
   member: Member = {
     id: 1,
     name: '田中太郎'
+  }
+  selectedMember?: Member;
+
+  onSelect(member: Member): void {
+    this.selectedMember = member;
   }
 
 }
